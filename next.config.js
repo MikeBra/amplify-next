@@ -35,7 +35,7 @@ const nextConfig = {
 	experimental: {
 		// Enable more detailed source maps
 		outputFileTracingIncludes: {
-			"/**/*.map": true,
+			"**/*.map": ["**/*.map"],
 		},
 	},
 	productionBrowserSourceMaps: true,
