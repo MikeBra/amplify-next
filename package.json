@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@aws-amplify/ui-react": "^6.5.5",
-		"assert": "^2.1.0",
 		"aws-amplify": "^6.6.6",
+		"assert": "^2.1.0",
 		"buffer": "^6.0.3",
 		"crypto-browserify": "^3.12.1",
 		"dotenv": "^16.4.7",
@@ -25,6 +25,9 @@
 		"util": "^0.12.5"
 	},
 	"devDependencies": {
+		"@aws-amplify/cli": "^12.10.1",
+		"@aws-amplify/backend": "^0.12.1",
+		"@aws-amplify/backend-cli": "^0.12.1",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
