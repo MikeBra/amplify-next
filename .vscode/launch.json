@@ -1,0 +1,66 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Next.js: Debug with Chrome",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:3000",
+			"webRoot": "${workspaceFolder}",
+			"sourceMapPathOverrides": {
+				"webpack://_N_E/*": "${workspaceFolder}/*",
+				"webpack:///*": "${workspaceFolder}/*",
+				"webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+				"webpack:///./*": "${workspaceFolder}/*",
+				"webpack:///src/*": "${workspaceFolder}/*",
+				"webpack:///_N_E/./*": "${workspaceFolder}/*",
+				"webpack:///../../*": "${workspaceFolder}/*",
+				"webpack://[name]/*": "${workspaceFolder}/*"
+			},
+			"sourceMaps": true,
+			"trace": true,
+			"runtimeArgs": ["--remote-debugging-port=9222"],
+			"userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+			"skipFiles": [
+				"<node_internals>/**/*.js",
+				"${workspaceFolder}/node_modules/**/*.js"
+			],
+			"outFiles": [
+				"${workspaceFolder}/.next/**/*.js",
+				"${workspaceFolder}/.next/**/*.js.map"
+			],
+			"resolveSourceMapLocations": [
+				"${workspaceFolder}/**",
+				"!**/node_modules/**"
+			]
+		},
+		{
+			"name": "Next.js: Debug Server",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "dev"],
+			"console": "integratedTerminal",
+			"skipFiles": ["<node_internals>/**"],
+			"outFiles": ["${workspaceFolder}/.next/server/**/*.js"]
+		},
+		{
+			"name": "Next.js: Full Stack Debug",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "npm run dev",
+			"serverReadyAction": {
+				"pattern": "- Local:.+(https?://.+)",
+				"uriFormat": "http://localhost:3000",
+				"action": "debugWithChrome"
+			}
+		}
+	],
+	"compounds": [
+		{
+			"name": "Next.js: Debug Full Stack",
+			"configurations": ["Next.js: Debug Server", "Next.js: Debug with Chrome"]
+		}
+	]
+}
