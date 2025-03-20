@@ -44,14 +44,16 @@ next-env.d.ts
 # AWS Amplify
 .amplify/artifacts/
 .amplify/mock-data/
-.amplify/backend/amplify-meta.json
-.amplify/backend/awscloudformation/
-.amplify/backend/api/*/build/
-.amplify/backend/auth/*/build/
-.amplify/backend/function/*/dist/
-.amplify/backend/function/*/build/
-.amplify/backend/hosting/*/build/
+.amplify/backend/api/
+.amplify/backend/function/
+.amplify/backend/storage/
+.amplify/backend/hosting/
 amplify/team-provider-info.json
+
+# Keep Amplify auth configuration
+!.amplify/backend/auth/
+!.amplify/backend/types/
+!.amplify/backend/backend-config.json
 
 # Amplify generated files
 amplify_outputs.json

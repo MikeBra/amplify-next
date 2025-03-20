@@ -2,7 +2,7 @@ import { Todo } from "../types/todo"
 import { fetchAuthSession } from "aws-amplify/auth"
 
 const API_BASE_URL =
-	process.env.NEXT_PUBLIC_API_URL || "https://your-api-gateway-url.com"
+	process.env.NEXT_PUBLIC_API_URL || "https://cgsbez671h.execute-api.us-east-1.amazonaws.com/development"
 
 async function getAuthToken() {
 	try {

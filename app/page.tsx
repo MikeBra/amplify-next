@@ -10,8 +10,24 @@ import { todoApi } from "./services/todoApi"
 import { Todo } from "./types/todo"
 import { useAuth } from "./providers/AuthProvider"
 import "./app.css"
+import { parseAmplifyConfig } from "aws-amplify/utils"
 
-Amplify.configure(outputs)
+const amplifyConfig = parseAmplifyConfig(outputs)
+
+Amplify.configure({
+	...amplifyConfig,
+	API: {
+		...amplifyConfig.API,
+		REST: {
+			...amplifyConfig.API?.REST,
+			YourAPIName: {
+				endpoint:
+					"https://cgsbez671h.execute-api.us-east-1.amazonaws.com/development",
+				region: "us-east-1",
+			},
+		},
+	},
+})
 
 function App() {
 	const { isAuthenticated, username, isLoading: authLoading } = useAuth()
